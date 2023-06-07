@@ -19,9 +19,9 @@ export class CreateEmployeeComponent {
 
   createForm = new FormGroup({
     empid: new FormControl("", [Validators.required, Validators.maxLength(5)]),
-    name: new FormControl("", [Validators.required, Validators.maxLength(50)]),
-    avatar: new FormControl("", [Validators.required, Validators.maxLength(20)]),
-    country: new FormControl("", [Validators.required]),
+    name: new FormControl("", [Validators.required, Validators.maxLength(50), Validators.pattern('[a-zA-Z ]*')]),
+    avatar: new FormControl("", [Validators.required, Validators.maxLength(20), Validators.pattern('[a-zA-Z ]*')]),
+    country: new FormControl("", [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
     dob: new FormControl("", [Validators.required]),
     emailAddress: new FormControl("", [Validators.required, Validators.pattern(this.emailRegex)]),
   })

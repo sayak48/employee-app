@@ -16,6 +16,9 @@
                     name
                     can
                     only be 50 characters</small>
+                <small class="text-danger"
+                    *ngIf="getControl('name')?.touched && getControl('name')?.errors?.['pattern']">Invalid name
+                    pattern</small>
             </div>
 
             <div class="mb-3">
@@ -28,7 +31,7 @@
                 <small class="text-danger"
                     *ngIf="getControl('email')?.touched && getControl('email')?.errors?.['pattern']">Email
                     should be of the
-                    corrext
+                    correct
                     pattern</small>
             </div>
 
@@ -37,8 +40,7 @@
                 <input type="date" class="form-control" id="dob" placeholder="dob" formControlName="dob"
                     [ngClass]="{error : getControl('dob')?.touched && getControl('dob')?.errors}">
                 <small class="text-danger"
-                    *ngIf="getControl('dob')?.touched && getControl('dob')?.errors?.['required']">Job
-                    Title is
+                    *ngIf="getControl('dob')?.touched && getControl('dob')?.errors?.['required']">Date of birth is
                     required</small>
             </div>
 
@@ -60,14 +62,22 @@
                 <small class="text-danger"
                     *ngIf="getControl('country')?.touched && getControl('country')?.errors?.['required']">Country is
                     required</small>
+                <small class="text-danger"
+                    *ngIf="getControl('country')?.touched && getControl('country')?.errors?.['pattern']">Invalid
+                    country
+                    pattern</small>
             </div>
             <div class="mb-3">
                 <label for="avatar" class="form-label">Avatar</label>
                 <input type="tel" class="form-control" id="avatar" placeholder="avatar" formControlName="avatar"
-                    [ngClass]="{error : getControl('name')?.touched && getControl('avatar')?.errors}">
+                    [ngClass]="{error : getControl('avatar')?.touched && getControl('avatar')?.errors}">
                 <small class="text-danger"
-                    *ngIf="getControl('name')?.touched && getControl('avatar')?.errors?.['required']">Avatar is
+                    *ngIf="getControl('avatar')?.touched && getControl('avatar')?.errors?.['required']">Avatar is
                     required</small>
+                <small class="text-danger"
+                    *ngIf="getControl('avatar')?.touched && getControl('avatar')?.errors?.['pattern']">Invalid
+                    avatar
+                    pattern</small>
             </div>
 
             <button type="submit" class="btn btn-primary submit-button" [disabled]="!editForm.valid">Submit</button>
