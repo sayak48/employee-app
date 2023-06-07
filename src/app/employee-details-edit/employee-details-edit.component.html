@@ -1,0 +1,76 @@
+<div class="container form-container">
+    <div class="form-header">
+        EDIT EMPLOYEE DETAILS
+    </div>
+    <div>
+        <form class="form-position" [formGroup]="editForm" (ngSubmit)="submit()">
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" placeholder="Name" formControlName="name"
+                    [ngClass]="{error : getControl('name')?.touched && getControl('name')?.errors}">
+                <small class="text-danger"
+                    *ngIf="getControl('name')?.touched && getControl('name')?.errors?.['required']">Name is
+                    required</small>
+                <small class="text-danger"
+                    *ngIf="getControl('name')?.touched && getControl('name')?.errors?.['maxlength']">Max length for the
+                    name
+                    can
+                    only be 50 characters</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" placeholder="Email Address" formControlName="email"
+                    [ngClass]="{error : getControl('email')?.touched && getControl('email')?.errors}">
+                <small class="text-danger"
+                    *ngIf="getControl('email')?.touched && getControl('email')?.errors?.['required']">Email is
+                    required</small>
+                <small class="text-danger"
+                    *ngIf="getControl('email')?.touched && getControl('email')?.errors?.['pattern']">Email
+                    should be of the
+                    corrext
+                    pattern</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="dob" class="form-label">Date of birth</label>
+                <input type="date" class="form-control" id="dob" placeholder="dob" formControlName="dob"
+                    [ngClass]="{error : getControl('dob')?.touched && getControl('dob')?.errors}">
+                <small class="text-danger"
+                    *ngIf="getControl('dob')?.touched && getControl('dob')?.errors?.['required']">Job
+                    Title is
+                    required</small>
+            </div>
+
+            <div class="mb-3">
+                <label for="country" class="form-label">Country</label>
+                <input list="country" class="form-control" id="country" placeholder="country" formControlName="country"
+                    [ngClass]="{error : getControl('country')?.touched && getControl('country')?.errors}">
+                <datalist id="country">
+                    <option value="India">
+                    <option value="USA">
+                    <option value="UK">
+                    <option value="Russia">
+                    <option value="Japan">
+                    <option value="China">
+                    <option value="Indonesia">
+                    <option value="Mozambique">
+                    <option value="Brazil">
+                </datalist>
+                <small class="text-danger"
+                    *ngIf="getControl('country')?.touched && getControl('country')?.errors?.['required']">Country is
+                    required</small>
+            </div>
+            <div class="mb-3">
+                <label for="avatar" class="form-label">Avatar</label>
+                <input type="tel" class="form-control" id="avatar" placeholder="avatar" formControlName="avatar"
+                    [ngClass]="{error : getControl('name')?.touched && getControl('avatar')?.errors}">
+                <small class="text-danger"
+                    *ngIf="getControl('name')?.touched && getControl('avatar')?.errors?.['required']">Avatar is
+                    required</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary submit-button" [disabled]="!editForm.valid">Submit</button>
+        </form>
+    </div>
+</div>

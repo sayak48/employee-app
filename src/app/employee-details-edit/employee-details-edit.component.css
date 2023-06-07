@@ -1,0 +1,21 @@
+.form-container {
+    margin-top: 2rem;
+    border: 2px solid;
+    border-radius: 14px;
+    padding: 9px;
+}
+
+.form-header {
+    text-align: center;
+    font-size: x-large;
+    font-family: inherit;
+}
+
+.submit-button {
+    display: flex;
+    justify-content: center;
+}
+
+.error {
+    border: 2px solid red;
+}

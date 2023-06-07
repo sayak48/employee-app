@@ -1,0 +1,8 @@
+.form-container {
+    max-height: 100%;
+    max-width: 100%
+}
+
+.error {
+    border: 2px solid red;
+}

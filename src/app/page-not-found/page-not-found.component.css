@@ -1,0 +1,6 @@
+.error {
+    color: rgb(201, 85, 85);
+    position: fixed;
+    top: 50%;
+    left: 25%;
+}

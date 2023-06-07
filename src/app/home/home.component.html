@@ -1,0 +1,42 @@
+<div *ngIf="!this.popup" class="container">
+    <div class="add">
+        <button type="button" class="btn btn-primary" (click)="openCreateEmployee()">Add Employee</button>
+    </div>
+
+    <div class="employee-table">
+        <table class="table table-bordered ">
+            <thead class="table-dark">
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Date-of-birth</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Avatar</th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody class="table-group-divider" *ngFor="let emp of employeeList$ | async ">
+                <tr>
+                    <td>{{emp.name}}</td>
+                    <td>{{emp.email}}</td>
+                    <td>{{emp.dob}}</td>
+                    <td>{{emp.country}}</td>
+                    <td>{{emp.avatar}}</td>
+                    <td class="btn-display">
+                        <button type="button" class="btn btn-info"
+                            [routerLink]="['/employees', emp.empId,'edit']">Edit</button>
+                        <button type="button" class="btn btn-danger" (click)="deleteEmployee(emp.empId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<div *ngIf="this.popup" class="container createEmployee">
+    <div class="create-employee-header">CREATE EMPLOYEE RECORD</div>
+    <div>
+        <app-create-employee (closeCreateEmployee)="closeCreateEmployee($event)"></app-create-employee>
+    </div>
+
+</div>

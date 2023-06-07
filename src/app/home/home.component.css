@@ -1,0 +1,28 @@
+.add {
+    margin-top: 2rem;
+}
+
+.employee-table {
+    margin-top: 2rem;
+    overflow-y: auto;
+    box-shadow: 10px 10px 5px #888888;
+}
+
+.btn-display {
+    display: flex;
+    justify-content: space-around;
+}
+
+.create-employee-header {
+    text-align: center;
+    font-size: x-large;
+    font-family: inherit;
+}
+
+
+.createEmployee {
+    margin-top: 2rem;
+    border: 2px solid;
+    border-radius: 14px;
+    padding: 9px;
+}
