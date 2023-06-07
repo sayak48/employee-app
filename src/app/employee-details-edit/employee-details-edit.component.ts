@@ -32,11 +32,9 @@ export class EmployeeDetailsEditComponent {
     this.activatedRouteForEmployee.paramMap.subscribe(params => {
       this.employId = params['get']('id')
     })
-    console.log("params", this.employId);
     this.employee$ = this.appService.getEmp();
 
     this.employee$.subscribe(res => {
-      console.log("edit profile", res)
       this.employeeDetail = { ...res };
       this.editForm.patchValue(res)
     });
@@ -49,7 +47,6 @@ export class EmployeeDetailsEditComponent {
   }
 
   submit() {
-    console.log(this.editForm);
     let updatedEmployee = {
       "empId": this.employId,
       "name": this.editForm.value.name,
@@ -59,15 +56,11 @@ export class EmployeeDetailsEditComponent {
       "dob": this.editForm.value.dob
 
     }
-    console.log("1", this.employeeDetail);
-    console.log("2", updatedEmployee)
     if (JSON.stringify(this.employeeDetail) === JSON.stringify(updatedEmployee)) {
       this.router.navigate(['home']);
     }
     else {
       this.appService.updateEmployee(updatedEmployee, this.employId).subscribe(res => {
-        console.log("updated Employee", res)
-
         this.router.navigate(['home']);
       })
     }

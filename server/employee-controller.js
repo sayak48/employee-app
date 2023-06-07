@@ -38,7 +38,6 @@ exports.getemployee = (req, res) => {
 };
 
 exports.createEmployee = (req, res) => {
-    console.log(req.body);
     let newEmployee = { ...req.body };
     newEmployee.country = newEmployee.country.toUpperCase();
 

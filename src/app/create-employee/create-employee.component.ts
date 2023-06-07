@@ -29,8 +29,6 @@ export class CreateEmployeeComponent {
 
   ngOnInit() {
     this.currentDate = new Date().toISOString().split('T')[0];
-    console.log(this.currentDate);
-
   }
 
   getControl(name: any): AbstractControl | null {
@@ -47,10 +45,7 @@ export class CreateEmployeeComponent {
       "avatar": this.createForm.value.avatar,
       "dob": this.createForm.value.dob
     }
-    console.log(saveData);
-
     this.appService.createEmployee(saveData).subscribe(res => {
-      console.log(res);
       this.closeCreateEmployee.emit({ "reload": true, "close": true });
     })
   }

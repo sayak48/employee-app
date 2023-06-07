@@ -18,8 +18,6 @@ export class HomeComponent {
 
     this.employeeList$ = this.appService.getEmpList();
 
-    this.employeeList$.subscribe(res => console.log(res))
-
     this.appService.getAllEmployees();
   }
 
@@ -27,14 +25,12 @@ export class HomeComponent {
   deleteEmployee(employId) {
     this.appService.deleteEmployee(employId)
       .subscribe(res => {
-        console.log(res);
         this.appService.getAllEmployees();
       })
   }
 
   openCreateEmployee() {
     this.popup = true;
-
   }
 
   closeCreateEmployee(eventData) {
